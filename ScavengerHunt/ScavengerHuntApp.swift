@@ -11,7 +11,7 @@ import SwiftUI
 struct ScavengerHuntApp: App {
     var body: some Scene {
         WindowGroup {
-            CurrentPositionView()
+            PositionView()
         }
     }
 }
