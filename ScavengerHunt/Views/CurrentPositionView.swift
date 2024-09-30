@@ -37,10 +37,10 @@ struct CurrentPositionView: View {
             showsUserLocation: true,
             userTrackingMode: .constant(.follow)
         )
-            .edgesIgnoringSafeArea(.all)
-            .onAppear {
-                locationManager.requestWhenInUseAuthorization()
-            }
+        .edgesIgnoringSafeArea(.all)
+        .onAppear {
+            locationManager.requestWhenInUseAuthorization()
+        }
     }
 }
 
