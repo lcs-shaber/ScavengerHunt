@@ -6,17 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		81869D902CAACE1300D76179 /* ScavengerHuntApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81869D8D2CAACE1300D76179 /* ScavengerHuntApp.swift */; };
+		81869D912CAACE1300D76179 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81869D892CAACE1300D76179 /* Preview Assets.xcassets */; };
+		81869D922CAACE1300D76179 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81869D8B2CAACE1300D76179 /* Assets.xcassets */; };
+		81869D952CAACE3200D76179 /* CurrentPositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81869D942CAACE3200D76179 /* CurrentPositionView.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		81869D782CAACD9400D76179 /* ScavengerHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScavengerHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81869D892CAACE1300D76179 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		81869D8B2CAACE1300D76179 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		81869D8D2CAACE1300D76179 /* ScavengerHuntApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScavengerHuntApp.swift; sourceTree = "<group>"; };
+		81869D942CAACE3200D76179 /* CurrentPositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPositionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		81869D7A2CAACD9400D76179 /* ScavengerHunt */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = ScavengerHunt;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		81869D752CAACD9400D76179 /* Frameworks */ = {
@@ -32,7 +35,7 @@
 		81869D6F2CAACD9400D76179 = {
 			isa = PBXGroup;
 			children = (
-				81869D7A2CAACD9400D76179 /* ScavengerHunt */,
+				81869D8E2CAACE1300D76179 /* ScavengerHunt */,
 				81869D792CAACD9400D76179 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +46,33 @@
 				81869D782CAACD9400D76179 /* ScavengerHunt.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		81869D8A2CAACE1300D76179 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				81869D892CAACE1300D76179 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		81869D8E2CAACE1300D76179 /* ScavengerHunt */ = {
+			isa = PBXGroup;
+			children = (
+				81869D8D2CAACE1300D76179 /* ScavengerHuntApp.swift */,
+				81869D932CAACE1F00D76179 /* Views */,
+				81869D8A2CAACE1300D76179 /* Preview Content */,
+				81869D8B2CAACE1300D76179 /* Assets.xcassets */,
+			);
+			path = ScavengerHunt;
+			sourceTree = "<group>";
+		};
+		81869D932CAACE1F00D76179 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				81869D942CAACE3200D76179 /* CurrentPositionView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +89,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				81869D7A2CAACD9400D76179 /* ScavengerHunt */,
 			);
 			name = ScavengerHunt;
 			packageProductDependencies = (
@@ -109,6 +136,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81869D912CAACE1300D76179 /* Preview Assets.xcassets in Resources */,
+				81869D922CAACE1300D76179 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +148,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81869D902CAACE1300D76179 /* ScavengerHuntApp.swift in Sources */,
+				81869D952CAACE3200D76179 /* CurrentPositionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,14 +283,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ScavengerHunt/Preview Content\"";
-				DEVELOPMENT_TEAM = U2ZN2W2UQJ;
+				DEVELOPMENT_TEAM = C7DL9Y9A7R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your current location is required to determine if you have completed the scavenger hunt! Your location details will never leave your device and are not shared with third parties.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -281,14 +314,16 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ScavengerHunt/Preview Content\"";
-				DEVELOPMENT_TEAM = U2ZN2W2UQJ;
+				DEVELOPMENT_TEAM = C7DL9Y9A7R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your current location is required to determine if you have completed the scavenger hunt! Your location details will never leave your device and are not shared with third parties.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
