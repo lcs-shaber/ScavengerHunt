@@ -19,9 +19,9 @@ class TargetsViewModel {
             latitude: 44.43991210,
             longitude: -78.26460133,
             radius: 8,
-            identifier: "Academic Block Sign",
-            question: "What family sponsored the construction of the Academic Block?",
-            answer: "Desmarais",
+            identifier: "John Runza's House",
+            question: "He guided the flock at LCS for many years – what is the name of the house he lives in?",
+            answer: "Hillcot",
             completed: false
         ),
         
@@ -29,9 +29,9 @@ class TargetsViewModel {
             latitude: 44.43991210,
             longitude: -78.26460133,
             radius: 8,
-            identifier: "John Runza's House",
-            question: "He guided the flock at LCS for many years – what is the name of the house he lives in?",
-            answer: "Hillcot",
+            identifier: "Academic Block Sign",
+            question: "What family sponsored the construction of the Academic Block?",
+            answer: "Desmarais",
             completed: false
         ),
         
