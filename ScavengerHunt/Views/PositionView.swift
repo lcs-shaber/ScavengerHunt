@@ -65,13 +65,20 @@ struct PositionView: View {
 
         }
         // Show a sheet when we enter the desired region
-        .sheet(isPresented: $viewModel.isInSeikoStore) {
+        .sheet(isPresented: $viewModel.shouldShowQuizSheet) {
             Text("You made it!")
         }
-        .presentationDetents([.fraction(0.2)])
+        .presentationDetents([.medium, .fraction(0.25)])
         .task {
             try? await viewModel.requestUserAuthorization()
-            await viewModel.monitorSeikoStoreRegion()
+            await viewModel.monitor(
+                target: TargetRegion(
+                    latitude: 44.44062,
+                    longitude: -78.26454,
+                    radius: 5,
+                    identifier: "Portables"
+                )
+            )
             try? await viewModel.startCurrentLocationUpdates()
         }
     }
