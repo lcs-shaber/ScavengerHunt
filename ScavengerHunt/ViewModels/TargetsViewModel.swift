@@ -11,7 +11,7 @@ import SwiftUI
 class TargetsViewModel {
     
     // MARK: Stored properties
-    private var currentTargetIndex: Int = 0
+    var currentTargetIndex: Int = 0
     
     var targets: [TargetRegion] = [
         
@@ -25,6 +25,18 @@ class TargetsViewModel {
             completed: false
         ),
         
+        TargetRegion(
+            latitude: 44.43991210,
+            longitude: -78.26460133,
+            radius: 8,
+            identifier: "John Runza's House",
+            question: "He guided the flock at LCS for many years – what is the name of the house he lives in?",
+            answer: "Hillcot",
+            completed: false
+        ),
+        
+
+
     ]
     
     // MARK: Functions

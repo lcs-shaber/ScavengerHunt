@@ -32,6 +32,9 @@ struct PositionView: View {
     // Used to track progress through targets
     @State var targetsViewModel = TargetsViewModel()
     
+    // Used to track current answer
+    @State var currentAnswer = ""
+    
     // MARK: Computed properties
     var body: some View {
         ZStack {
@@ -49,7 +52,7 @@ struct PositionView: View {
                 
                 Rectangle()
                     .foregroundStyle(.black)
-                    .aspectRatio(3.0/1.0, contentMode: .fit)
+                    .aspectRatio(1.5/1.0, contentMode: .fit)
                     .overlay {
                         VStack {
                             
@@ -57,8 +60,11 @@ struct PositionView: View {
                             
                             Text("Location manager: \(positionViewModel.location?.description ?? "No Location Provided!")")
                                 .foregroundStyle(.white)
-                                .padding()
+                                .padding(.vertical)
+                            
+                            Text("\(targetsViewModel.getCurrentTarget().question)")
                         }
+                        .padding()
                         
                     }
                 
@@ -69,7 +75,32 @@ struct PositionView: View {
         }
         // Show a sheet when we enter the desired region
         .sheet(isPresented: $positionViewModel.shouldShowQuizSheet) {
-            Text("You made it!")
+            
+            VStack {
+                
+                Text("You reached the target!")
+
+                TextField("What is the answer to the question?", text: $currentAnswer)
+                
+                Button {
+                    if currentAnswer == targetsViewModel.getCurrentTarget().answer {
+                        
+                        // Mark current target as completed
+                        targetsViewModel.targets[targetsViewModel.currentTargetIndex].completed = true
+                    }
+                } label: {
+                    Text("Submit")
+                }
+                
+                if targetsViewModel.targets[targetsViewModel.currentTargetIndex].completed {
+                    Image(systemName: "checkmark.seal.fill")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 30, height: 30)
+                }
+
+            }
+            
         }
         .presentationDetents([.medium, .fraction(0.25)])
         .task {
