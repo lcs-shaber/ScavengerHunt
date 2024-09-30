@@ -13,4 +13,7 @@ struct TargetRegion {
     let longitude: CLLocationDegrees
     let radius: CLLocationDistance
     let identifier: String
+    let question: String
+    let answer: String
+    var completed: Bool
 }

@@ -27,7 +27,10 @@ struct PositionView: View {
     )
     
     // Used to track entry to regions
-    @State var viewModel = PositionViewModel()
+    @State var positionViewModel = PositionViewModel()
+    
+    // Used to track progress through targets
+    @State var targetsViewModel = TargetsViewModel()
     
     // MARK: Computed properties
     var body: some View {
@@ -52,7 +55,7 @@ struct PositionView: View {
                             
                             Spacer()
                             
-                            Text("Location manager: \(viewModel.location?.description ?? "No Location Provided!")")
+                            Text("Location manager: \(positionViewModel.location?.description ?? "No Location Provided!")")
                                 .foregroundStyle(.white)
                                 .padding()
                         }
@@ -65,21 +68,16 @@ struct PositionView: View {
 
         }
         // Show a sheet when we enter the desired region
-        .sheet(isPresented: $viewModel.shouldShowQuizSheet) {
+        .sheet(isPresented: $positionViewModel.shouldShowQuizSheet) {
             Text("You made it!")
         }
         .presentationDetents([.medium, .fraction(0.25)])
         .task {
-            try? await viewModel.requestUserAuthorization()
-            await viewModel.monitor(
-                target: TargetRegion(
-                    latitude: 44.44062,
-                    longitude: -78.26454,
-                    radius: 5,
-                    identifier: "Portables"
-                )
+            try? await positionViewModel.requestUserAuthorization()
+            await positionViewModel.monitor(
+                target: targetsViewModel.getCurrentTarget()
             )
-            try? await viewModel.startCurrentLocationUpdates()
+            try? await positionViewModel.startCurrentLocationUpdates()
         }
     }
 }

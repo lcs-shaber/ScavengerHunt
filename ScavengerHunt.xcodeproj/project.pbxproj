@@ -14,6 +14,7 @@
 		81869D982CAAD76100D76179 /* PositionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81869D972CAAD76100D76179 /* PositionViewModel.swift */; };
 		81869D9A2CAAD7B200D76179 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 81869D992CAAD7AF00D76179 /* README.md */; };
 		81869D9D2CAAD86500D76179 /* TargetRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81869D9C2CAAD86000D76179 /* TargetRegion.swift */; };
+		81869D9F2CAAEB6F00D76179 /* TargetsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81869D9E2CAAEB6600D76179 /* TargetsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		81869D972CAAD76100D76179 /* PositionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionViewModel.swift; sourceTree = "<group>"; };
 		81869D992CAAD7AF00D76179 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		81869D9C2CAAD86000D76179 /* TargetRegion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetRegion.swift; sourceTree = "<group>"; };
+		81869D9E2CAAEB6600D76179 /* TargetsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		81869D962CAAD63700D76179 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				81869D9E2CAAEB6600D76179 /* TargetsViewModel.swift */,
 				81869D972CAAD76100D76179 /* PositionViewModel.swift */,
 			);
 			path = ViewModels;
@@ -176,6 +179,7 @@
 			files = (
 				81869D902CAACE1300D76179 /* ScavengerHuntApp.swift in Sources */,
 				81869D982CAAD76100D76179 /* PositionViewModel.swift in Sources */,
+				81869D9F2CAAEB6F00D76179 /* TargetsViewModel.swift in Sources */,
 				81869D9D2CAAD86500D76179 /* TargetRegion.swift in Sources */,
 				81869D952CAACE3200D76179 /* PositionView.swift in Sources */,
 			);
