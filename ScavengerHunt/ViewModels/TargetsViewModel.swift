@@ -36,27 +36,6 @@ class TargetsViewModel {
         ),
         
         TargetRegion(
-            latitude: 44.43991210,
-            longitude: -78.26460133,
-            radius: 8,
-            identifier: "John Runza's House",
-            question: "He guided the flock at LCS for many years – what is the name of the house he lives in?",
-            answer: "Hillcot",
-            completed: false
-        ),
-        
-        TargetRegion(
-            latitude: 44.439252,
-            longitude: -78.265323,
-            radius: 8,
-            identifier: "Chapel",
-            question: "Unites the centures of school spirit",
-            answer: "Hillcot",
-            completed: false
-        ),
-        
-        // danikas addition
-        TargetRegion(
             latitude: 44.43800,
             longitude: -78.26579,
             radius: 8,
