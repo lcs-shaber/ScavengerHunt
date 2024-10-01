@@ -43,9 +43,37 @@ class TargetsViewModel {
             question: "What house has a polar bear as their mascot?",
             answer: "Ryder",
             completed: false
-        )
+        ),
         
-
+        TargetRegion(      
+            latitude: 44.43800,
+            longitude: -78.26579,
+            radius: 8,
+            identifier: "Gate house",
+            question: "the tiny house when you drive onto campus - what colour is the fence?",
+            answer: "Green",
+            completed: false
+        ),
+        
+        TargetRegion(
+            latitude: 44.43963,
+            longitude: -78.26499,
+            radius: 8,
+            identifier: "theater lobby",
+            question: "Where are we going to see the performances in the school?",
+            answer: "Theater",
+            completed: false
+        ),
+        
+        TargetRegion(//44.44050° N, 78.26741° W
+            latitude: 44.44050,
+            longitude: -78.26741,
+            radius: 8,
+            identifier: "Parent House",
+            question: "Which is the newest girl's house?",
+            answer: "Parent",
+            completed: false
+        ),
 
     ]
     
