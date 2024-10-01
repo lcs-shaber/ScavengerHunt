@@ -35,6 +35,17 @@ class TargetsViewModel {
             completed: false
         ),
         
+        // danikas addition
+        TargetRegion(
+            latitude: 44.43800,
+            longitude: -78.26579,
+            radius: 8,
+            identifier: "Gate house",
+            question: "the tiny house when you drive onto campus - what colour is the fence?",
+            answer: "Green",
+            completed: false
+        ),
+        
 
 
     ]
