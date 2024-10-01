@@ -35,6 +35,16 @@ class TargetsViewModel {
             completed: false
         ),
         
+        TargetRegion(
+            latitude: 44.43910514,
+            longitude: -78.26751465,
+            radius: 8,
+            identifier: "Ryder House",
+            question: "What house has a polar bear as their mascot?",
+            answer: "Ryder",
+            completed: false
+        )
+        
 
 
     ]
