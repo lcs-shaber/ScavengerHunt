@@ -74,7 +74,14 @@ class TargetsViewModel {
             answer: "Parent",
             completed: false
         ),
-
+        TargetRegion(latitude: 44.44051,
+                    longitude: -78.26611,
+                    radius: 8,
+                    identifier: "The ODR",
+                    question: "The only facility that's open for one season - what is the name of this facility?",
+                    answer: "Bob Armstrong Rink",
+                    completed: false
+        ),
     ]
     
     // MARK: Functions
