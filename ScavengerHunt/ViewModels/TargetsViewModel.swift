@@ -111,11 +111,23 @@ class TargetsViewModel {
             latitude: 44.43963,
             longitude: -78.26499,
             radius: 8,
+            identifier: "Chapel",
+            question: "Under whos lead was the chapel built?",
+            answer: "Alexander Mackenzie",
+            completed: false
+        ),
+        
+        
+        TargetRegion(
+            latitude: 44.43963,
+            longitude: -78.26499,
+            radius: 8,
             identifier: "theater lobby",
             question: "Where are we going to see the performances in the school?",
             answer: "Theater",
             completed: false
         ),
+        
         
         TargetRegion(//44.44050° N, 78.26741° W
             latitude: 44.44050,
