@@ -36,8 +36,18 @@ class TargetsViewModel {
                     ),
         
         TargetRegion(
-            latitude: 44.43728,
-            longitude: -78.26820,
+            latitude: 44.43776,
+            longitude: -78.26796,
+            radius: 10,
+            identifier: "Cooper House",
+            question: "A House with enegy-efficient design - Which House is it?",
+            answer: "Cooper House",
+            completed: false
+        ),
+        
+        TargetRegion(
+            latitude: 44.43910514,
+            longitude: -78.26751465,
             radius: 8,
             identifier: "Uplands House",
             question: "One of the newest houses with geothermal heating",
