@@ -15,9 +15,9 @@ class TargetsViewModel {
     
     var targets: [TargetRegion] = [
         
-        TargetRegion(
-            latitude: 44.43991210,
-            longitude: -78.26460133,
+        TargetRegion( // 44.43832° N, 78.26718° W
+            latitude: 44.43832,
+            longitude: -78.26718,
             radius: 8,
             identifier: "John Runza's House",
             question: "He guided the flock at LCS for many years – what is the name of the house he lives in?",
@@ -25,7 +25,7 @@ class TargetsViewModel {
             completed: false
         ),
         
-        TargetRegion(
+        TargetRegion( // 44.43984° N, 78.26474° W
             latitude: 44.43991210,
             longitude: -78.26460133,
             radius: 8,
@@ -38,6 +38,28 @@ class TargetsViewModel {
         TargetRegion(
             latitude: 44.439181,
             longitude: -78.265295,
+            latitude: 44.43910514,
+            longitude: -78.26751465,
+            radius: 8,
+            identifier: "Ryder House",
+            question: "What house has a polar bear as their mascot?",
+            answer: "Ryder",
+            completed: false
+        ),
+        
+        TargetRegion(      
+            latitude: 44.43800,
+            longitude: -78.26579,
+            radius: 8,
+            identifier: "Gate house",
+            question: "the tiny house when you drive onto campus - what colour is the fence?",
+            answer: "Green",
+            completed: false
+        ),
+        
+        TargetRegion(
+            latitude: 44.43963,
+            longitude: -78.26499,
             radius: 8,
             identifier: "Chapel",
             question: "Under whos lead was the chapel built?",
@@ -45,7 +67,27 @@ class TargetsViewModel {
             completed: false
         ),
         
-
+        
+        TargetRegion(
+            latitude: 44.43963,
+            longitude: -78.26499,
+            radius: 8,
+            identifier: "theater lobby",
+            question: "Where are we going to see the performances in the school?",
+            answer: "Theater",
+            completed: false
+        ),
+        
+        
+        TargetRegion(//44.44050° N, 78.26741° W
+            latitude: 44.44050,
+            longitude: -78.26741,
+            radius: 8,
+            identifier: "Parent House",
+            question: "Which is the newest girl's house?",
+            answer: "Parent",
+            completed: false
+        ),
 
     ]
     
