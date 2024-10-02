@@ -42,7 +42,8 @@ class TargetsViewModel {
             identifier: "Cooper House",
             question: "A House with enegy-efficient design - Which House is it?",
             answer: "Cooper House",
-            completed: false),
+            completed: false
+        ),
     
     ]
     
