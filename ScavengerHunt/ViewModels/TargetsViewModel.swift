@@ -35,6 +35,16 @@ class TargetsViewModel {
             completed: false
         ),
         
+        TargetRegion(
+            latitude: 44.439181,
+            longitude: -78.265295,
+            radius: 8,
+            identifier: "Chapel",
+            question: "Under whos lead was the chapel built?",
+            answer: "Alexander Mackenzie",
+            completed: false
+        ),
+        
 
 
     ]
