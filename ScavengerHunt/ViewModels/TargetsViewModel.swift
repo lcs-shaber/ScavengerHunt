@@ -46,6 +46,16 @@ class TargetsViewModel {
         ),
         
         TargetRegion(
+            latitude: 44.43817,
+            longitude: -78.26827,
+            radius: 8,
+            identifier: "The tall tree.",
+            question: "Where is the best place to watch a sunset in Lakefield?",
+            answer: "Matthews Hill",
+            completed: false
+        ),
+        
+        TargetRegion(
             latitude: 44.443939,
             longitude: -78.26482,
             radius: 8,
