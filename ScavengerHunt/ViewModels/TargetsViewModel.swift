@@ -23,7 +23,7 @@ class TargetsViewModel {
             question: "He guided the flock at LCS for many years – what is the name of the house he lives in?",
             answer: "Hillcot",
             completed: false
-        ),
+                    ),
         
         TargetRegion( // 44.43984° N, 78.26474° W
             latitude: 44.43991210,
@@ -32,6 +32,26 @@ class TargetsViewModel {
             identifier: "Academic Block Sign",
             question: "What family sponsored the construction of the Academic Block?",
             answer: "Desmarais",
+            completed: false
+                    ),
+        
+        TargetRegion(
+            latitude: 44.43728,
+            longitude: -78.26820,
+            radius: 8,
+            identifier: "Uplands House",
+            question: "One of the newest houses with geothermal heating",
+            answer: "Uplands",
+            completed: false
+        ),
+        
+        TargetRegion(
+            latitude: 44.43800,
+            longitude: -78.26579,
+            radius: 8,
+            identifier: "Gate house",
+            question: "the tiny house when you drive onto campus - what colour is the fence?",
+            answer: "Green",
             completed: false
         ),
         
@@ -42,16 +62,6 @@ class TargetsViewModel {
             identifier: "Ryder House",
             question: "What house has a polar bear as their mascot?",
             answer: "Ryder",
-            completed: false
-        ),
-        
-        TargetRegion(      
-            latitude: 44.43800,
-            longitude: -78.26579,
-            radius: 8,
-            identifier: "Gate house",
-            question: "the tiny house when you drive onto campus - what colour is the fence?",
-            answer: "Green",
             completed: false
         ),
         
