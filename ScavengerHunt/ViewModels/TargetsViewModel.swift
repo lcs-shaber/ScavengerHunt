@@ -55,6 +55,18 @@ class TargetsViewModel {
             completed: false
         ),
         
+        
+        TargetRegion(
+            latitude: 44.43846383,
+            longitude: -78.26900859,
+            radius: 8,
+            identifier: "Boat hut sign",
+            question: "Which building was built, because the windsurfing hut burned down?",
+            answer: "The Dalglish Family Boathouse",
+            completed: false
+        ),
+        
+
         TargetRegion(
             latitude: 44.43910514,
             longitude: -78.26751465,
