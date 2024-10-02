@@ -43,7 +43,7 @@ class TargetsViewModel {
             question: "What is the Name of this House?",
             answer: "Collingwood",
             completed: false
-        )
+        ),
 
         TargetRegion(
             latitude: 44.43910514,
