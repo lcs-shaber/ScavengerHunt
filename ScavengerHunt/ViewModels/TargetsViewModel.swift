@@ -15,9 +15,9 @@ class TargetsViewModel {
     
     var targets: [TargetRegion] = [
         
-        TargetRegion(
-            latitude: 44.43991210,
-            longitude: -78.26460133,
+        TargetRegion( // 44.43832° N, 78.26718° W
+            latitude: 44.43832,
+            longitude: -78.26718,
             radius: 8,
             identifier: "John Runza's House",
             question: "He guided the flock at LCS for many years – what is the name of the house he lives in?",
@@ -25,7 +25,7 @@ class TargetsViewModel {
             completed: false
         ),
         
-        TargetRegion(
+        TargetRegion( // 44.43984° N, 78.26474° W
             latitude: 44.43991210,
             longitude: -78.26460133,
             radius: 8,
@@ -45,6 +45,16 @@ class TargetsViewModel {
             completed: false
         ),
         
+        TargetRegion(//44.44050° N, 78.26741° W
+            latitude: 44.44050,
+            longitude: -78.26741,
+            radius: 8,
+            identifier: "Parent House",
+            question: "Which is the newest girl's house?",
+            answer: "Parent",
+            completed: false
+        ),
+
     ]
     
     // MARK: Functions
