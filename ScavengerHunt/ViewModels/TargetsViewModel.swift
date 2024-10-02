@@ -35,6 +35,15 @@ class TargetsViewModel {
             completed: false
         ),
         
+        TargetRegion(
+            latitude: 444.43939,
+            longitude: 78.26482,
+            radius: 8,
+            identifier: "Health Centre Sign",
+            question: "What is the Name of this House?",
+            answer: "Collingwood",
+            completed: false
+        )
 
 
     ]
