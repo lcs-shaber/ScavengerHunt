@@ -23,7 +23,7 @@ class TargetsViewModel {
             question: "He guided the flock at LCS for many years – what is the name of the house he lives in?",
             answer: "Hillcot",
             completed: false
-        ),
+                    ),
         
         TargetRegion( // 44.43984° N, 78.26474° W
             latitude: 44.43991210,
@@ -33,27 +33,77 @@ class TargetsViewModel {
             question: "What family sponsored the construction of the Academic Block?",
             answer: "Desmarais",
             completed: false
-        ),
+                    ),
         
         TargetRegion(
-            latitude: 44.439181,
-            longitude: -78.265295,
-            latitude: 44.43910514,
-            longitude: -78.26751465,
-            radius: 8,
-            identifier: "Ryder House",
-            question: "What house has a polar bear as their mascot?",
-            answer: "Ryder",
+            latitude: 44.43776,
+            longitude: -78.26796,
+            radius: 10,
+            identifier: "Cooper House",
+            question: "A House with enegy-efficient design - Which House is it?",
+            answer: "Cooper House",
             completed: false
         ),
         
-        TargetRegion(      
+        TargetRegion(
+            latitude: 44.43817,
+            longitude: -78.26827,
+            radius: 8,
+            identifier: "The tall tree.",
+            question: "Where is the best place to watch a sunset in Lakefield?",
+            answer: "Matthews Hill",
+            completed: false
+        ),
+        
+        TargetRegion(
+            latitude: 44.443939,
+            longitude: -78.26482,
+            radius: 8,
+            identifier: "Health Centre Sign",
+            question: "What is the Name of this House?",
+            answer: "Collingwood",
+            completed: false
+        ),
+
+        TargetRegion(
+            latitude: 44.43910514,
+            longitude: -78.26751465,
+            radius: 8,
+            identifier: "Uplands House",
+            question: "One of the newest houses with geothermal heating",
+            answer: "Uplands",
+            completed: false
+        ),
+        
+        TargetRegion(
             latitude: 44.43800,
             longitude: -78.26579,
             radius: 8,
             identifier: "Gate house",
             question: "the tiny house when you drive onto campus - what colour is the fence?",
             answer: "Green",
+            completed: false
+        ),
+        
+        
+        TargetRegion(
+            latitude: 44.43846383,
+            longitude: -78.26900859,
+            radius: 8,
+            identifier: "Boat hut sign",
+            question: "Which building was built, because the windsurfing hut burned down?",
+            answer: "The Dalglish Family Boathouse",
+            completed: false
+        ),
+        
+
+        TargetRegion(
+            latitude: 44.43910514,
+            longitude: -78.26751465,
+            radius: 8,
+            identifier: "Ryder House",
+            question: "What house has a polar bear as their mascot?",
+            answer: "Ryder",
             completed: false
         ),
         
@@ -88,7 +138,35 @@ class TargetsViewModel {
             answer: "Parent",
             completed: false
         ),
+        
+        TargetRegion(
+             latitude: 44.43722,
+             longitude: -78.26821,
+             radius: 8,
+             identifier: "Uplands House",
+             question: "Students in this house walk pass Matthew house and the blowing wind from lake every morning to go to the dining hall. What year is this house built? ",
+             answer: "2015",
+             completed: false
+         ),
 
+      TargetRegion(latitude: 44.44051,
+                    longitude: -78.26611,
+                    radius: 8,
+                    identifier: "The ODR",
+                    question: "The only facility that's open for one season - what is the name of this facility?",
+                    answer: "Bob Armstrong Rink",
+                    completed: false
+        ),
+
+      TargetRegion(
+                            latitude: 44.43775626,
+                            longitude: -78.26757131,
+                            radius: 8,
+                            identifier: "Sign infront of thw House",
+                            question: "What is the 3rd newest house built on campus?",
+                            answer: "Cooper House",
+                            completed: false
+                        )
     ]
     
     // MARK: Functions
