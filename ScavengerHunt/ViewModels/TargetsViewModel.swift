@@ -35,8 +35,15 @@ class TargetsViewModel {
             completed: false
         ),
         
-
-
+        TargetRegion(
+            latitude: 44.43776,
+            longitude: -78.26796,
+            radius: 10,
+            identifier: "Cooper House",
+            question: "A House with enegy-efficient design - Which House is it?",
+            answer: "Cooper House",
+            completed: false),
+    
     ]
     
     // MARK: Functions
