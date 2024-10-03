@@ -8,7 +8,8 @@
 import CoreLocation
 import Foundation
 
-struct TargetRegion {
+struct TargetRegion: Identifiable, Hashable {
+    let id = UUID()
     let latitude: CLLocationDegrees
     let longitude: CLLocationDegrees
     let radius: CLLocationDistance
