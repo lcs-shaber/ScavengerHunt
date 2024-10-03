@@ -144,7 +144,7 @@ class TargetsViewModel {
              longitude: -78.26821,
              radius: 8,
              identifier: "Uplands House",
-             question: "Students in this house walk pass Matthew house and the blowing wind from lake every morning to go to the dining hall. What year is this house built? ",
+             question: "Students in this house walk passt Matthew house and the blowing wind from the lake every morning to go to the dining hall. What year is this house built? ",
              answer: "2015",
              completed: false
          ),

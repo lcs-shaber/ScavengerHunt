@@ -74,13 +74,40 @@ struct PositionView: View {
 
         }
         // Show a sheet when we enter the desired region
-        .sheet(isPresented: $positionViewModel.shouldShowQuizSheet) {
+  //      .sheet(isPresented: $positionViewModel.shouldShowQuizSheet) {
+        .sheet(isPresented: Binding.constant(true)) {
             
-            VStack {
+            
+            VStack (spacing: 30.0) {
+                
+                
+                Spacer()
+                
+                Image(systemName: "party.popper.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100)
+                    .foregroundStyle(.orange, .red.opacity(0.8))
+                
+                
                 
                 Text("You reached the target!")
+                    .bold()
+                    .font(.title)
 
-                TextField("What is the answer to the question?", text: $currentAnswer)
+                    .padding(.vertical)
+                
+                Text(targetsViewModel.getCurrentTarget().question)
+                    .bold()
+                    .padding(.horizontal)
+                
+                    
+                
+                TextField("What is your answer?", text: $currentAnswer)
+                    .padding(.horizontal)
+                    .multilineTextAlignment(.center)
+                
+                   
                 
                 Button {
                     if currentAnswer == targetsViewModel.getCurrentTarget().answer {
@@ -90,7 +117,11 @@ struct PositionView: View {
                     }
                 } label: {
                     Text("Submit")
+                        .bold()
+                        .font(.title2)
                 }
+                
+                Spacer()
                 
                 if targetsViewModel.targets[targetsViewModel.currentTargetIndex].completed {
                     Image(systemName: "checkmark.seal.fill")
@@ -100,9 +131,10 @@ struct PositionView: View {
                 }
 
             }
+            .presentationDetents([.medium])
             
         }
-        .presentationDetents([.medium, .fraction(0.25)])
+        
         .task {
             try? await positionViewModel.requestUserAuthorization()
             await positionViewModel.monitor(
