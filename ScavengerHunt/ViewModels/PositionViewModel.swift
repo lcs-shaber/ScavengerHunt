@@ -61,7 +61,8 @@ class PositionViewModel: NSObject, CLLocationManagerDelegate {
         
         // Create a monitor to keep track of location
         if monitor == nil {
-            monitor = await CLMonitor("MonitorID")
+            // Use the identifier of the target, minus spaces, to track the different Core Location monitors
+            monitor = await CLMonitor(target.identifier.replacingOccurrences(of: " ", with: ""))
         }
         
         // Add the current target region to the list of regions to monitor
