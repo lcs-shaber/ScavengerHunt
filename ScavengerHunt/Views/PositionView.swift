@@ -74,8 +74,8 @@ struct PositionView: View {
 
         }
         // Show a sheet when we enter the desired region
-  //      .sheet(isPresented: $positionViewModel.shouldShowQuizSheet) {
-        .sheet(isPresented: Binding.constant(true)) {
+        .sheet(isPresented: $positionViewModel.shouldShowQuizSheet) {
+  //      .sheet(isPresented: Binding.constant(true)) {
             
             
             VStack (spacing: 20.0) {
