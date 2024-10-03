@@ -19,7 +19,7 @@ class TargetsViewModel {
             latitude: 44.43832,
             longitude: -78.26718,
             radius: 8,
-            identifier: "John Runza's House",
+            identifier: "House of Runza",
             question: "He guided the flock at LCS for many years – what is the name of the house he lives in?",
             answer: "Hillcot",
             completed: false
@@ -49,7 +49,7 @@ class TargetsViewModel {
             latitude: 44.43817,
             longitude: -78.26827,
             radius: 8,
-            identifier: "The tall tree.",
+            identifier: "The Tall Tree",
             question: "Where is the best place to watch a sunset in Lakefield?",
             answer: "Matthews Hill",
             completed: false
@@ -90,7 +90,7 @@ class TargetsViewModel {
             latitude: 44.43846383,
             longitude: -78.26900859,
             radius: 8,
-            identifier: "Boat hut sign",
+            identifier: "Boat Hut Sign",
             question: "Which building was built, because the windsurfing hut burned down?",
             answer: "The Dalglish Family Boathouse",
             completed: false
@@ -122,7 +122,7 @@ class TargetsViewModel {
             latitude: 44.43963,
             longitude: -78.26499,
             radius: 8,
-            identifier: "theater lobby",
+            identifier: "Theater Lobby",
             question: "Where are we going to see the performances in the school?",
             answer: "Theater",
             completed: false
@@ -153,7 +153,7 @@ class TargetsViewModel {
             latitude: 44.44051,
             longitude: -78.26611,
             radius: 8,
-            identifier: "The ODR",
+            identifier: "Outdoor Rink",
             question: "The only facility that's open for one season - what is the name of this facility?",
             answer: "Bob Armstrong Rink",
             completed: false
@@ -167,7 +167,18 @@ class TargetsViewModel {
             question: "What is the 3rd newest house built on campus?",
             answer: "Cooper House",
             completed: false
-        )
+        ),
+
+        TargetRegion(
+            latitude: 44.43722,
+            longitude: -78.26821,
+            radius: 8,
+            identifier: "Uplands House",
+            question: "Students in this house walk pass Matthew house and the blowing wind from lake every morning to go to the dining hall. What year is this house built? ",
+            answer: "2015",
+            completed: false
+         ),
+
     ]
     
     // MARK: Functions
