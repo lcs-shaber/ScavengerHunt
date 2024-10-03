@@ -72,6 +72,18 @@ struct PositionView: View {
                             Spacer()
                         }
                         
+                        HStack {
+                            Button {
+                                positionViewModel.shouldShowQuizSheet = true
+                            } label: {
+                                Text("Fake arrival at location")
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .padding(.top)
+
+                            Spacer()
+                        }
+                        
                     }
                     .padding()
                     .foregroundStyle(.white)
