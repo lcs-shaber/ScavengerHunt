@@ -30,89 +30,141 @@ struct PositionView: View {
     @State var positionViewModel = PositionViewModel()
     
     // Used to track progress through targets
-    @State var targetsViewModel = TargetsViewModel()
+    @Binding var currentTarget: TargetRegion
     
     // Used to track current answer
     @State var currentAnswer = ""
     
+    // Used to track whether question is active
+    @State var questionIsActive = false
+    
     // MARK: Computed properties
     var body: some View {
-        ZStack {
-            Map(
-                coordinateRegion: $region,
-                showsUserLocation: true,
-                userTrackingMode: .constant(.follow)
-            )
-            .onAppear {
-                locationManager.requestWhenInUseAuthorization()
-            }
-            .edgesIgnoringSafeArea(.all)
+        if questionIsActive {
+            
+            ZStack {
+                Map(
+                    coordinateRegion: $region,
+                    showsUserLocation: true,
+                    userTrackingMode: .constant(.follow)
+                )
+                .onAppear {
+                    locationManager.requestWhenInUseAuthorization()
+                }
+                .edgesIgnoringSafeArea(.all)
+                .grayscale(currentTarget.completed ? 1.0 : 0.0)
 
-            VStack {
-                
-                Rectangle()
-                    .foregroundStyle(.black)
-                    .aspectRatio(1.5/1.0, contentMode: .fit)
-                    .overlay {
-                        VStack {
+                VStack {
+                    
+                    VStack {
+                        
+                        HStack {
+                            Text("Location manager: \(positionViewModel.location?.description ?? "No Location Provided!")")
+                                .padding(.vertical)
+                                .padding(.top, 75)
                             
                             Spacer()
-                            
-                            Text("Location manager: \(positionViewModel.location?.description ?? "No Location Provided!")")
-                                .foregroundStyle(.white)
-                                .padding(.vertical)
-                            
-                            Text("\(targetsViewModel.getCurrentTarget().question)")
                         }
-                        .padding()
+
+                        
+                        HStack {
+                            Text("\(currentTarget.question)")
+                            
+                            Spacer()
+                        }
+                        
+                        HStack {
+                            Button {
+                                positionViewModel.shouldShowQuizSheet = true
+                            } label: {
+                                Text("Fake arrival at location")
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .padding(.top)
+
+                            Spacer()
+                        }
                         
                     }
-                
-                Spacer()
+                    .padding()
+                    .foregroundStyle(.white)
+                    .background(Rectangle())
+                    .edgesIgnoringSafeArea(.all)
+                    
+                    Spacer()
+                }
+
+
             }
-            .edgesIgnoringSafeArea(.all)
-
-        }
-        // Show a sheet when we enter the desired region
-        .sheet(isPresented: $positionViewModel.shouldShowQuizSheet) {
-            
-            VStack {
+            .task {
+                try? await positionViewModel.requestUserAuthorization()
+                await positionViewModel.monitor(
+                    target: currentTarget
+                )
+                try? await positionViewModel.startCurrentLocationUpdates()
+            }
+            // Show a sheet when we enter the desired region
+            .sheet(isPresented: $positionViewModel.shouldShowQuizSheet) {
                 
-                Text("You reached the target!")
+                VStack {
+                    
+                    Text("You reached the target!")
 
-                TextField("What is the answer to the question?", text: $currentAnswer)
+                    TextField("What is the answer to the question?", text: $currentAnswer)
+
+                    Button {
+                        currentAnswer = currentTarget.answer
+                    } label: {
+                        Text("Fake correct answer")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.red)
+                    
+                    Button {
+                        if currentAnswer == currentTarget.answer {
+                            
+                            // Mark current target as completed
+                            withAnimation(Animation.easeIn(duration: 1.0)) {
+                                currentTarget.completed = true
+                            }
+                        }
+                    } label: {
+                        Text("Submit")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    
+                    if currentTarget.completed {
+                        Image(systemName: "checkmark.seal.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                    }
+
+                }
+                .presentationDetents([.medium, .fraction(0.25)])
+                .presentationDragIndicator(.hidden)
+            }
+
+            
+        } else {
+            VStack {
+                Text(currentTarget.question)
                 
                 Button {
-                    if currentAnswer == targetsViewModel.getCurrentTarget().answer {
-                        
-                        // Mark current target as completed
-                        targetsViewModel.targets[targetsViewModel.currentTargetIndex].completed = true
-                    }
+                    questionIsActive = true
                 } label: {
-                    Text("Submit")
+                    Text("Begin")
                 }
-                
-                if targetsViewModel.targets[targetsViewModel.currentTargetIndex].completed {
-                    Image(systemName: "checkmark.seal.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                }
+                .buttonStyle(.borderedProminent)
 
             }
-            
+            .padding()
+
         }
-        .presentationDetents([.medium, .fraction(0.25)])
-        .task {
-            try? await positionViewModel.requestUserAuthorization()
-            await positionViewModel.monitor(
-                target: targetsViewModel.getCurrentTarget()
-            )
-            try? await positionViewModel.startCurrentLocationUpdates()
-        }
+        
     }
 }
 
 #Preview {
-    PositionView()
+    PositionView(currentTarget: .constant(TargetsViewModel().targets.last!))
 }
