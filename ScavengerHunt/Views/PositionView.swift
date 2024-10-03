@@ -30,89 +30,112 @@ struct PositionView: View {
     @State var positionViewModel = PositionViewModel()
     
     // Used to track progress through targets
-    @State var targetsViewModel = TargetsViewModel()
+    @Binding var currentTarget: TargetRegion
     
     // Used to track current answer
     @State var currentAnswer = ""
     
+    // Used to track whether question is active
+    @State var questionIsActive = false
+    
     // MARK: Computed properties
     var body: some View {
-        ZStack {
-            Map(
-                coordinateRegion: $region,
-                showsUserLocation: true,
-                userTrackingMode: .constant(.follow)
-            )
-            .onAppear {
-                locationManager.requestWhenInUseAuthorization()
-            }
-            .edgesIgnoringSafeArea(.all)
-
-            VStack {
-                
-                Rectangle()
-                    .foregroundStyle(.black)
-                    .aspectRatio(1.5/1.0, contentMode: .fit)
-                    .overlay {
-                        VStack {
-                            
-                            Spacer()
-                            
-                            Text("Location manager: \(positionViewModel.location?.description ?? "No Location Provided!")")
-                                .foregroundStyle(.white)
-                                .padding(.vertical)
-                            
-                            Text("\(targetsViewModel.getCurrentTarget().question)")
-                        }
-                        .padding()
-                        
-                    }
-                
-                Spacer()
-            }
-            .edgesIgnoringSafeArea(.all)
-
-        }
-        // Show a sheet when we enter the desired region
-        .sheet(isPresented: $positionViewModel.shouldShowQuizSheet) {
+        if questionIsActive {
             
-            VStack {
-                
-                Text("You reached the target!")
+            ZStack {
+                Map(
+                    coordinateRegion: $region,
+                    showsUserLocation: true,
+                    userTrackingMode: .constant(.follow)
+                )
+                .onAppear {
+                    locationManager.requestWhenInUseAuthorization()
+                }
+                .edgesIgnoringSafeArea(.all)
 
-                TextField("What is the answer to the question?", text: $currentAnswer)
+                VStack {
+                    
+                    Rectangle()
+                        .foregroundStyle(.black)
+                        .aspectRatio(1.5/1.0, contentMode: .fit)
+                        .overlay {
+                            VStack {
+                                
+                                Spacer()
+                                
+                                Text("Location manager: \(positionViewModel.location?.description ?? "No Location Provided!")")
+                                    .foregroundStyle(.white)
+                                    .padding(.vertical)
+                                
+                                Text("\(currentTarget.question)")
+                            }
+                            .padding()
+                            
+                        }
+                    
+                    Spacer()
+                }
+                .edgesIgnoringSafeArea(.all)
+
+            }
+            .task {
+                try? await positionViewModel.requestUserAuthorization()
+                await positionViewModel.monitor(
+                    target: currentTarget
+                )
+                try? await positionViewModel.startCurrentLocationUpdates()
+            }
+            // Show a sheet when we enter the desired region
+            .sheet(isPresented: $positionViewModel.shouldShowQuizSheet) {
+                
+                VStack {
+                    
+                    Text("You reached the target!")
+
+                    TextField("What is the answer to the question?", text: $currentAnswer)
+                    
+                    Button {
+                        if currentAnswer == currentTarget.answer {
+                            
+                            // Mark current target as completed
+                            currentTarget.completed = true
+                        }
+                    } label: {
+                        Text("Submit")
+                    }
+                    
+                    if currentTarget.completed {
+                        Image(systemName: "checkmark.seal.fill")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 30, height: 30)
+                    }
+
+                }
+                
+            }
+            .presentationDetents([.medium, .fraction(0.25)])
+
+            
+        } else {
+            VStack {
+                Text(currentTarget.question)
                 
                 Button {
-                    if currentAnswer == targetsViewModel.getCurrentTarget().answer {
-                        
-                        // Mark current target as completed
-                        targetsViewModel.targets[targetsViewModel.currentTargetIndex].completed = true
-                    }
+                    questionIsActive = true
                 } label: {
-                    Text("Submit")
+                    Text("Begin")
                 }
-                
-                if targetsViewModel.targets[targetsViewModel.currentTargetIndex].completed {
-                    Image(systemName: "checkmark.seal.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30, height: 30)
-                }
+                .buttonStyle(.borderedProminent)
 
             }
-            
+            .padding()
+
         }
-        .presentationDetents([.medium, .fraction(0.25)])
-        .task {
-            try? await positionViewModel.requestUserAuthorization()
-            await positionViewModel.monitor(
-                target: targetsViewModel.getCurrentTarget()
-            )
-            try? await positionViewModel.startCurrentLocationUpdates()
-        }
+        
     }
 }
 
 #Preview {
-    PositionView()
+    PositionView(currentTarget: .constant(TargetsViewModel().targets.last!))
 }

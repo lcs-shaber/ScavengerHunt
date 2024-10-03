@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TargetsListItemView: View {
     
-    let target: TargetRegion
+    @Binding var target: TargetRegion
     
     var body: some View {
         Text(target.question)
@@ -18,7 +18,7 @@ struct TargetsListItemView: View {
 
 #Preview {
     TargetsListItemView(
-        target: TargetsViewModel().targets.last!
+        target: .constant(TargetsViewModel().targets.last!)
     )
     .padding()
 }

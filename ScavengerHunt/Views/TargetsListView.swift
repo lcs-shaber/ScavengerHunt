@@ -17,10 +17,9 @@ struct TargetsListView: View {
     // MARK: Computed properties
     var body: some View {
         NavigationStack {
-            List(targetsViewModel.targets) { currentTarget in
+            List($targetsViewModel.targets) { currentTarget in
                 NavigationLink {
-                    Text(currentTarget.question)
-                        .padding()
+                    PositionView(currentTarget: currentTarget)
                 } label: {
                     TargetsListItemView(target: currentTarget)
                 }
