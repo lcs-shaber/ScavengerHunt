@@ -13,10 +13,27 @@ struct TargetsListItemView: View {
     
     var body: some View {
         Label {
-            HStack {
-                Text(target.question)
-                    .strikethrough(target.completed)
-                Spacer()
+            VStack {
+                HStack {
+                    Text(target.question)
+                        .strikethrough(target.completed)
+                    Spacer()
+                }
+                if target.completed {
+                    HStack {
+                        
+                        Text(target.answer)
+                            .bold()
+                            .padding(.vertical, 5)
+                            .padding(.horizontal, 10)
+                            .background {
+                                RoundedRectangle(cornerRadius: 5.0)
+                                    .foregroundStyle(.yellow)
+                            }
+                        
+                        Spacer()
+                    }
+                }
             }
         } icon: {
             Image(systemName: target.completed ? "checkmark.circle" : "circle")
