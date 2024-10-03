@@ -18,10 +18,14 @@ struct TargetsListView: View {
     var body: some View {
         NavigationStack {
             List($targetsViewModel.targets) { currentTarget in
-                NavigationLink {
-                    PositionView(currentTarget: currentTarget)
-                } label: {
+                if currentTarget.completed.wrappedValue == true {
                     TargetsListItemView(target: currentTarget)
+                } else {
+                    NavigationLink {
+                        PositionView(currentTarget: currentTarget)
+                    } label: {
+                        TargetsListItemView(target: currentTarget)
+                    }
                 }
             }
             .navigationTitle("Scavenger Hunt!")
