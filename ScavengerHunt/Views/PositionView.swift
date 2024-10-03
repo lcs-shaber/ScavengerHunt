@@ -78,7 +78,7 @@ struct PositionView: View {
         .sheet(isPresented: Binding.constant(true)) {
             
             
-            VStack (spacing: 30.0) {
+            VStack (spacing: 20.0) {
                 
                 
                 Spacer()
@@ -93,7 +93,7 @@ struct PositionView: View {
                 
                 Text("You reached the target!")
                     .bold()
-                    .font(.title)
+                    .font(.largeTitle)
 
                     .padding(.vertical)
                 
