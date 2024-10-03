@@ -75,7 +75,7 @@ struct PositionView: View {
         }
         // Show a sheet when we enter the desired region
         .sheet(isPresented: $positionViewModel.shouldShowQuizSheet) {
-  //      .sheet(isPresented: Binding.constant(true)) {
+  //    .sheet(isPresented: Binding.constant(true)) {
             
             
             VStack (spacing: 20.0) {
@@ -83,12 +83,10 @@ struct PositionView: View {
                 
                 Spacer()
                 
-                Image(systemName: "party.popper.fill")
+                Image("partyHat")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 100)
-                    .foregroundStyle(.orange, .red.opacity(0.8))
-                
+                    .frame(width: 150)
                 
                 
                 Text("You reached the target!")
