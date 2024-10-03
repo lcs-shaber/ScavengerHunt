@@ -12,13 +12,23 @@ struct TargetsListItemView: View {
     @Binding var target: TargetRegion
     
     var body: some View {
-        Text(target.question)
+        Label {
+            HStack {
+                Text(target.question)
+                Spacer()
+            }
+        } icon: {
+            Image(systemName: target.completed ? "checkmark.circle" : "circle")
+                .resizable()
+                .scaledToFit()
+        }
     }
 }
 
 #Preview {
-    TargetsListItemView(
-        target: .constant(TargetsViewModel().targets.last!)
-    )
-    .padding()
+    List {
+        TargetsListItemView(
+            target: .constant(TargetsViewModel().targets.last!)
+        )
+    }
 }

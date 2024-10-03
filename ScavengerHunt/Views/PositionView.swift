@@ -55,27 +55,32 @@ struct PositionView: View {
 
                 VStack {
                     
-                    Rectangle()
-                        .foregroundStyle(.black)
-                        .aspectRatio(1.5/1.0, contentMode: .fit)
-                        .overlay {
-                            VStack {
-                                
-                                Spacer()
-                                
-                                Text("Location manager: \(positionViewModel.location?.description ?? "No Location Provided!")")
-                                    .foregroundStyle(.white)
-                                    .padding(.vertical)
-                                
-                                Text("\(currentTarget.question)")
-                            }
-                            .padding()
+                    VStack {
+                        
+                        HStack {
+                            Text("Location manager: \(positionViewModel.location?.description ?? "No Location Provided!")")
+                                .padding(.vertical)
+                                .padding(.top, 40)
                             
+                            Spacer()
                         }
+
+                        
+                        HStack {
+                            Text("\(currentTarget.question)")
+                            
+                            Spacer()
+                        }
+                        
+                    }
+                    .padding()
+                    .foregroundStyle(.white)
+                    .background(Rectangle())
+                    .edgesIgnoringSafeArea(.all)
                     
                     Spacer()
                 }
-                .edgesIgnoringSafeArea(.all)
+
 
             }
             .task {
