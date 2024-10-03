@@ -15,6 +15,7 @@ struct TargetsListItemView: View {
         Label {
             HStack {
                 Text(target.question)
+                    .strikethrough(target.completed)
                 Spacer()
             }
         } icon: {
