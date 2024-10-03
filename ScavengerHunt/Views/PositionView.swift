@@ -52,6 +52,7 @@ struct PositionView: View {
                     locationManager.requestWhenInUseAuthorization()
                 }
                 .edgesIgnoringSafeArea(.all)
+                .grayscale(currentTarget.completed ? 1.0 : 0.0)
 
                 VStack {
                     
@@ -123,7 +124,9 @@ struct PositionView: View {
                         if currentAnswer == currentTarget.answer {
                             
                             // Mark current target as completed
-                            currentTarget.completed = true
+                            withAnimation(Animation.easeIn(duration: 1.0)) {
+                                currentTarget.completed = true
+                            }
                         }
                     } label: {
                         Text("Submit")
