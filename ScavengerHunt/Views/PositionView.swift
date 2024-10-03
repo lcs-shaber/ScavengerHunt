@@ -60,7 +60,7 @@ struct PositionView: View {
                         HStack {
                             Text("Location manager: \(positionViewModel.location?.description ?? "No Location Provided!")")
                                 .padding(.vertical)
-                                .padding(.top, 40)
+                                .padding(.top, 75)
                             
                             Spacer()
                         }
@@ -110,6 +110,14 @@ struct PositionView: View {
                     Text("You reached the target!")
 
                     TextField("What is the answer to the question?", text: $currentAnswer)
+
+                    Button {
+                        currentAnswer = currentTarget.answer
+                    } label: {
+                        Text("Fake correct answer")
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.red)
                     
                     Button {
                         if currentAnswer == currentTarget.answer {
@@ -120,6 +128,7 @@ struct PositionView: View {
                     } label: {
                         Text("Submit")
                     }
+                    .buttonStyle(.borderedProminent)
                     
                     if currentTarget.completed {
                         Image(systemName: "checkmark.seal.fill")
@@ -129,9 +138,9 @@ struct PositionView: View {
                     }
 
                 }
-                
+                .presentationDetents([.medium, .fraction(0.25)])
+                .presentationDragIndicator(.hidden)
             }
-            .presentationDetents([.medium, .fraction(0.25)])
 
             
         } else {
