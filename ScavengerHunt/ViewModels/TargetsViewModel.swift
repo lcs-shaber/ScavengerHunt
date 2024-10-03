@@ -64,7 +64,7 @@ class TargetsViewModel {
             answer: "Collingwood",
             completed: false
         ),
-
+        
         TargetRegion(
             latitude: 44.43910514,
             longitude: -78.26751465,
@@ -96,7 +96,7 @@ class TargetsViewModel {
             completed: false
         ),
         
-
+        
         TargetRegion(
             latitude: 44.43910514,
             longitude: -78.26751465,
@@ -137,36 +137,48 @@ class TargetsViewModel {
             question: "Which is the newest girl's house?",
             answer: "Parent",
             completed: false
+                    ),
+        
+        TargetRegion(
+            latitude: 44.43722,
+            longitude: -78.26821,
+            radius: 8,
+            identifier: "Uplands House",
+            question: "Students in this house walk pass Matthew house and the blowing wind from lake every morning to go to the dining hall. What year is this house built? ",
+            answer: "2015",
+            completed: false
         ),
         
         TargetRegion(
-             latitude: 44.43722,
-             longitude: -78.26821,
-             radius: 8,
-             identifier: "Uplands House",
-             question: "Students in this house walk pass Matthew house and the blowing wind from lake every morning to go to the dining hall. What year is this house built? ",
-             answer: "2015",
-             completed: false
-         ),
-
-      TargetRegion(latitude: 44.44051,
-                    longitude: -78.26611,
-                    radius: 8,
-                    identifier: "Outdoor Rink",
-                    question: "The only facility that's open for one season - what is the name of this facility?",
-                    answer: "Bob Armstrong Rink",
-                    completed: false
+            latitude: 44.44051,
+            longitude: -78.26611,
+            radius: 8,
+            identifier: "Outdoor Rink",
+            question: "The only facility that's open for one season - what is the name of this facility?",
+            answer: "Bob Armstrong Rink",
+            completed: false
+        ),
+        
+        TargetRegion(
+            latitude: 44.43775626,
+            longitude: -78.26757131,
+            radius: 8,
+            identifier: "Sign infront of thw House",
+            question: "What is the 3rd newest house built on campus?",
+            answer: "Cooper House",
+            completed: false
         ),
 
-      TargetRegion(
-                            latitude: 44.43775626,
-                            longitude: -78.26757131,
-                            radius: 8,
-                            identifier: "Cooper House",
-                            question: "What is the 3rd newest house built on campus?",
-                            answer: "Cooper House",
-                            completed: false
-                        )
+        TargetRegion(
+            latitude: 44.43722,
+            longitude: -78.26821,
+            radius: 8,
+            identifier: "Uplands House",
+            question: "Students in this house walk pass Matthew house and the blowing wind from lake every morning to go to the dining hall. What year is this house built? ",
+            answer: "2015",
+            completed: false
+         ),
+
     ]
     
     // MARK: Functions
