@@ -39,6 +39,17 @@ struct PositionView: View {
     @State var questionIsActive = false
     
     // MARK: Computed properties
+    
+    // Distance to target from current location
+    var distanceToTarget: String {
+        
+        // positionViewModel.location is an instance of CLLocation and that built-in type (part of Core Location) provides a method named distance that finds the distance between two points
+        let distance = positionViewModel.location?.distance(from: CLLocation(latitude: currentTarget.latitude, longitude: currentTarget.longitude)) ?? 1000.0
+        return String(distance.formatted(.number.precision(.fractionLength(1))))
+        
+    }
+    
+    // User interface
     var body: some View {
         if questionIsActive {
             
@@ -58,32 +69,31 @@ struct PositionView: View {
                     
                     VStack {
                         
-                        HStack(alignment: .bottom) {
+                        HStack {
+                            Text("Location manager: \(positionViewModel.location?.description ?? "No Location Provided!")")
+                                .foregroundStyle(.primary)
+                                .padding(.vertical)
+                                .padding(.top, 75)
                             
-                            Text("10.2 m")
-                                .font(.largeTitle)
-                                .bold()
-                            
-                            VStack {
-                                HStack {
-                                    Text("Location manager: \(positionViewModel.location?.description ?? "No Location Provided!")")
-                                        .foregroundStyle(.primary)
-                                        .padding(.vertical)
-                                        .padding(.top, 75)
-                                    
-                                    Spacer()
-                                }
-
-                                
-                                HStack {
-                                    Text("\(currentTarget.question)")
-                                        .foregroundStyle(.primary)
-
-                                    Spacer()
-                                }
-                            }
+                            Spacer()
                         }
 
+                        
+                        HStack {
+                            Text("\(currentTarget.question)")
+                                .foregroundStyle(.primary)
+
+                            Spacer()
+                        }
+
+                        VStack {
+                            Text("Distance to target")
+                                .bold()
+                            Text("\(distanceToTarget) m")
+                                .font(.largeTitle)
+                                .bold()
+                        }
+                            .padding(.vertical)
                         
                         HStack {
                             Button {
@@ -92,7 +102,6 @@ struct PositionView: View {
                                 Text("Fake arrival at location")
                             }
                             .buttonStyle(.borderedProminent)
-                            .padding(.top)
                             .tint(.blue)
                             .disabled(currentTarget.completed)
 
