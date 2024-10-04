@@ -60,6 +60,7 @@ struct PositionView: View {
                         
                         HStack {
                             Text("Location manager: \(positionViewModel.location?.description ?? "No Location Provided!")")
+                                .foregroundStyle(.primary)
                                 .padding(.vertical)
                                 .padding(.top, 75)
                             
@@ -69,7 +70,8 @@ struct PositionView: View {
                         
                         HStack {
                             Text("\(currentTarget.question)")
-                            
+                                .foregroundStyle(.primary)
+
                             Spacer()
                         }
                         
@@ -81,14 +83,18 @@ struct PositionView: View {
                             }
                             .buttonStyle(.borderedProminent)
                             .padding(.top)
+                            .tint(.blue)
+                            .disabled(currentTarget.completed)
 
                             Spacer()
                         }
                         
                     }
                     .padding()
-                    .foregroundStyle(.white)
-                    .background(Rectangle())
+                    .background {
+                        Rectangle()
+                            .foregroundStyle(.primaryInverted)
+                    }
                     .edgesIgnoringSafeArea(.all)
                     
                     Spacer()
@@ -118,8 +124,9 @@ struct PositionView: View {
                         Text("Fake correct answer")
                     }
                     .buttonStyle(.borderedProminent)
-                    .tint(.red)
-                    
+                    .tint(.blue)
+                    .disabled(currentTarget.completed)
+
                     Button {
                         if currentAnswer == currentTarget.answer {
                             
@@ -132,7 +139,8 @@ struct PositionView: View {
                         Text("Submit")
                     }
                     .buttonStyle(.borderedProminent)
-                    
+                    .disabled(currentTarget.completed)
+
                     if currentTarget.completed {
                         Image(systemName: "checkmark.seal.fill")
                             .resizable()

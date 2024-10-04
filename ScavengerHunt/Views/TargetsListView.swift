@@ -17,18 +17,30 @@ struct TargetsListView: View {
     // MARK: Computed properties
     var body: some View {
         NavigationStack {
-            List($targetsViewModel.targets) { currentTarget in
-                if currentTarget.completed.wrappedValue == true {
-                    TargetsListItemView(target: currentTarget)
-                } else {
-                    NavigationLink {
-                        PositionView(currentTarget: currentTarget)
-                    } label: {
+            List {
+                ForEach($targetsViewModel.targets) { currentTarget in
+                    if currentTarget.completed.wrappedValue == true {
                         TargetsListItemView(target: currentTarget)
+                    } else {
+                        NavigationLink {
+                            PositionView(currentTarget: currentTarget)
+                        } label: {
+                            TargetsListItemView(target: currentTarget)
+                        }
                     }
                 }
+                .listRowBackground(Color.clear)
             }
-            .navigationTitle("Scavenger Hunt!")
+            // Add a new background color for the list
+            .background {
+                LinearGradient(colors: [.gradientStart, .gradientEnd], startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .ignoresSafeArea()
+            }
+            // Hide regular list color
+            .scrollContentBackground(.hidden)
+            // Make the background color of the list shine through when scrolling up
+            .toolbarBackground(.ultraThinMaterial)
+            .navigationTitle("LCS Scavenger Hunt")
         }
     }
 }
