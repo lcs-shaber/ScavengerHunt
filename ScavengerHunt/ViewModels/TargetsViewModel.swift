@@ -40,7 +40,7 @@ class TargetsViewModel {
             longitude: -78.26796,
             radius: 10,
             identifier: "Cooper House",
-            question: "A House with enegy-efficient design - Which House is it?",
+            question: "A boys house with enegy-efficient design - Which House is it?",
             answer: "Cooper House",
             completed: false
         ),
@@ -60,7 +60,7 @@ class TargetsViewModel {
             longitude: -78.26482,
             radius: 8,
             identifier: "Health Centre Sign",
-            question: "What is the Name of this House?",
+            question: "Where do you go when you're sick? What is the Name of this House?",
             answer: "Collingwood",
             completed: false
         ),
@@ -80,7 +80,7 @@ class TargetsViewModel {
             longitude: -78.26579,
             radius: 8,
             identifier: "Gate house",
-            question: "the tiny house when you drive onto campus - what colour is the fence?",
+            question: "The tiny house when you drive onto campus - what colour is the fence?",
             answer: "Green",
             completed: false
         ),
@@ -112,7 +112,7 @@ class TargetsViewModel {
             longitude: -78.26499,
             radius: 8,
             identifier: "Chapel",
-            question: "Under whos lead was the chapel built?",
+            question: "Who was the headmaster when the chapel was built?",
             answer: "Alexander Mackenzie",
             completed: false
         ),
@@ -123,7 +123,7 @@ class TargetsViewModel {
             longitude: -78.26499,
             radius: 8,
             identifier: "Theater Lobby",
-            question: "Where are we going to see the performances in the school?",
+            question: "Where do we go to see the performances in the school?",
             answer: "Theater",
             completed: false
         ),
@@ -144,7 +144,7 @@ class TargetsViewModel {
             longitude: -78.26821,
             radius: 8,
             identifier: "Uplands House",
-            question: "Students in this house walk pass Matthew house and the blowing wind from lake every morning to go to the dining hall. What year is this house built? ",
+            question: "Students in this house walk pass Matthew house and the blowing wind from the lake every morning to go to the dining hall. What year was this house built? ",
             answer: "2015",
             completed: false
         ),
@@ -159,25 +159,6 @@ class TargetsViewModel {
             completed: false
         ),
         
-        TargetRegion(
-            latitude: 44.43775626,
-            longitude: -78.26757131,
-            radius: 8,
-            identifier: "Sign infront of thw House",
-            question: "What is the 3rd newest house built on campus?",
-            answer: "Cooper House",
-            completed: false
-        ),
-
-        TargetRegion(
-            latitude: 44.43722,
-            longitude: -78.26821,
-            radius: 8,
-            identifier: "Uplands House",
-            question: "Students in this house walk pass Matthew house and the blowing wind from lake every morning to go to the dining hall. What year is this house built? ",
-            answer: "2015",
-            completed: false
-         ),
 
     ]
     
