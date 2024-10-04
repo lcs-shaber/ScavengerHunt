@@ -58,22 +58,32 @@ struct PositionView: View {
                     
                     VStack {
                         
-                        HStack {
-                            Text("Location manager: \(positionViewModel.location?.description ?? "No Location Provided!")")
-                                .foregroundStyle(.primary)
-                                .padding(.vertical)
-                                .padding(.top, 75)
+                        HStack(alignment: .bottom) {
                             
-                            Spacer()
+                            Text("10.2 m")
+                                .font(.largeTitle)
+                                .bold()
+                            
+                            VStack {
+                                HStack {
+                                    Text("Location manager: \(positionViewModel.location?.description ?? "No Location Provided!")")
+                                        .foregroundStyle(.primary)
+                                        .padding(.vertical)
+                                        .padding(.top, 75)
+                                    
+                                    Spacer()
+                                }
+
+                                
+                                HStack {
+                                    Text("\(currentTarget.question)")
+                                        .foregroundStyle(.primary)
+
+                                    Spacer()
+                                }
+                            }
                         }
 
-                        
-                        HStack {
-                            Text("\(currentTarget.question)")
-                                .foregroundStyle(.primary)
-
-                            Spacer()
-                        }
                         
                         HStack {
                             Button {
