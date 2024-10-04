@@ -64,7 +64,7 @@ struct PositionView: View {
                 }
                 .edgesIgnoringSafeArea(.all)
                 .grayscale(currentTarget.completed ? 1.0 : 0.0)
-
+                
                 VStack {
                     
                     VStack {
@@ -77,15 +77,15 @@ struct PositionView: View {
                             
                             Spacer()
                         }
-
+                        
                         
                         HStack {
                             Text("\(currentTarget.question)")
                                 .foregroundStyle(.primary)
-
+                            
                             Spacer()
                         }
-
+                        
                         VStack {
                             Text("Distance to target")
                                 .bold()
@@ -93,7 +93,7 @@ struct PositionView: View {
                                 .font(.largeTitle)
                                 .bold()
                         }
-                            .padding(.vertical)
+                        .padding(.vertical)
                         
                         HStack {
                             Button {
@@ -104,7 +104,7 @@ struct PositionView: View {
                             .buttonStyle(.borderedProminent)
                             .tint(.blue)
                             .disabled(currentTarget.completed)
-
+                            
                             Spacer()
                         }
                         
@@ -118,8 +118,8 @@ struct PositionView: View {
                     
                     Spacer()
                 }
-
-
+                
+                
             }
             .task {
                 try? await positionViewModel.requestUserAuthorization()
@@ -134,9 +134,9 @@ struct PositionView: View {
                 VStack {
                     
                     Text("You reached the target!")
-
+                    
                     TextField("What is the answer to the question?", text: $currentAnswer)
-
+                    
                     Button {
                         currentAnswer = currentTarget.answer
                     } label: {
@@ -145,7 +145,7 @@ struct PositionView: View {
                     .buttonStyle(.borderedProminent)
                     .tint(.blue)
                     .disabled(currentTarget.completed)
-
+                    
                     Button {
                         if currentAnswer == currentTarget.answer {
                             
@@ -159,19 +159,19 @@ struct PositionView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .disabled(currentTarget.completed)
-
+                    
                     if currentTarget.completed {
                         Image(systemName: "checkmark.seal.fill")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 30, height: 30)
                     }
-
+                    
                 }
                 .presentationDetents([.medium, .fraction(0.25)])
                 .presentationDragIndicator(.hidden)
             }
-
+            
             
         } else {
             VStack {
@@ -183,10 +183,10 @@ struct PositionView: View {
                     Text("Begin")
                 }
                 .buttonStyle(.borderedProminent)
-
+                
             }
             .padding()
-
+            
         }
         
     }
