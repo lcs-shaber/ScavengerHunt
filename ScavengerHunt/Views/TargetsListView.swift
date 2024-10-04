@@ -49,20 +49,27 @@ struct TargetsListView: View {
 
 #Preview {
     
-    TabView(selection: Binding.constant(1)) {
+    TabView(selection: Binding.constant(2)) {
+        
+        
+        Text ("Map")
+            .tabItem {
+                Image(systemName: "map.circle")
+                Text ("Map")
+            } .tag(1)
         
         
         TargetsListView()
             .tabItem {
                 Image(systemName: "questionmark.circle")
                 Text ("Questions")
-            } .tag(1)
+            } .tag(2)
         
         Text ("Leaderboard")
             .tabItem {
                 Image(systemName: "list.number")
                 Text ("Leaderboard")
-            } .tag(1)
+            } .tag(3)
         
         
     }
