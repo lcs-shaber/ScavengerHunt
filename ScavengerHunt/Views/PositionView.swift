@@ -121,12 +121,8 @@ struct PositionView: View {
                         }
                         
                         
-                        HStack {
-                            Text("\(currentTarget.question)")
-                                .foregroundStyle(.primary)
-                            
-                            Spacer()
-                        }
+                        Text("\(currentTarget.question)")
+                            .foregroundStyle(.primary)
                         
                         VStack {
                             Text("Distance to target")
@@ -138,18 +134,15 @@ struct PositionView: View {
                         }
                         .padding(.vertical)
                         
-                        HStack {
-                            Button {
-                                positionViewModel.shouldShowQuizSheet = true
-                            } label: {
-                                Text("Fake arrival at location")
-                            }
-                            .buttonStyle(.borderedProminent)
-                            .tint(.blue)
-                            .disabled(currentTarget.completed)
-                            
-                            Spacer()
+                        Button {
+                            positionViewModel.shouldShowQuizSheet = true
+                        } label: {
+                            Text("Fake arrival at location")
+                                .foregroundStyle(.primaryInverted)
                         }
+                        .buttonStyle(.borderedProminent)
+                        .tint(.primary)
+                        .disabled(currentTarget.completed)
                         
                     }
                     .padding()
@@ -184,9 +177,10 @@ struct PositionView: View {
                         currentAnswer = currentTarget.answer
                     } label: {
                         Text("Fake correct answer")
+                            .foregroundStyle(.primaryInverted)
                     }
                     .buttonStyle(.borderedProminent)
-                    .tint(.blue)
+                    .tint(.primary)
                     .disabled(currentTarget.completed)
                     
                     Button {
