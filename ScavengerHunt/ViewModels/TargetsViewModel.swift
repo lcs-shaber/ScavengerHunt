@@ -40,7 +40,7 @@ class TargetsViewModel {
             longitude: -78.26796,
             radius: 10,
             identifier: "Cooper House",
-            question: "A House with enegy-efficient design - Which House is it?",
+            question: "A boys house with enegy-efficient design - Which House is it?",
             answer: "Cooper House",
             completed: false
         ),
@@ -144,7 +144,7 @@ class TargetsViewModel {
             longitude: -78.26821,
             radius: 8,
             identifier: "Uplands House",
-            question: "Students in this house walk pass Matthew house and the blowing wind from lake every morning to go to the dining hall. What year is this house built? ",
+            question: "Students in this house walk pass Matthew house and the blowing wind from the lake every morning to go to the dining hall. What year was this house built? ",
             answer: "2015",
             completed: false
         ),
@@ -159,15 +159,6 @@ class TargetsViewModel {
             completed: false
         ),
         
-        TargetRegion(
-            latitude: 44.43775626,
-            longitude: -78.26757131,
-            radius: 8,
-            identifier: "Sign infront of the House",
-            question: "What is the 3rd newest house built on campus?",
-            answer: "Cooper House",
-            completed: false
-        ),
 
     ]
     
