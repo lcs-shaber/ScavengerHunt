@@ -44,8 +44,13 @@ struct PositionView: View {
     var distanceToTarget: String {
         
         // positionViewModel.location is an instance of CLLocation and that built-in type (part of Core Location) provides a method named distance that finds the distance between two points
-        let distance = positionViewModel.location?.distance(from: CLLocation(latitude: currentTarget.latitude, longitude: currentTarget.longitude)) ?? 1000.0
-        return String(distance.formatted(.number.precision(.fractionLength(1))))
+        guard let targetLocation = positionViewModel.location else {
+            return "unknown"
+        }
+        
+        let distance = targetLocation.distance(from: CLLocation(latitude: currentTarget.latitude, longitude: currentTarget.longitude))
+        
+        return String(distance.formatted(.number.precision(.fractionLength(1)))) + " m"
         
     }
     
@@ -89,7 +94,7 @@ struct PositionView: View {
                         VStack {
                             Text("Distance to target")
                                 .bold()
-                            Text("\(distanceToTarget) m")
+                            Text(distanceToTarget)
                                 .font(.largeTitle)
                                 .bold()
                         }
