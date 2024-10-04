@@ -42,9 +42,29 @@ struct TargetsListView: View {
             .toolbarBackground(.ultraThinMaterial)
             .navigationTitle("LCS Scavenger Hunt")
         }
+        
+        
     }
 }
 
 #Preview {
-    TargetsListView()
+    
+    TabView(selection: Binding.constant(1)) {
+        
+        
+        TargetsListView()
+            .tabItem {
+                Image(systemName: "questionmark.circle")
+                Text ("Questions")
+            } .tag(1)
+        
+        Text ("Leaderboard")
+            .tabItem {
+                Image(systemName: "list.number")
+                Text ("Leaderboard")
+            } .tag(1)
+        
+        
+    }
+    
 }
