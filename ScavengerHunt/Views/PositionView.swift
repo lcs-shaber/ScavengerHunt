@@ -41,17 +41,54 @@ struct PositionView: View {
     // MARK: Computed properties
     
     // Distance to target from current location
-    var distanceToTarget: String {
-        
+    var distanceToTarget: CLLocationDistance? {
+
         // positionViewModel.location is an instance of CLLocation and that built-in type (part of Core Location) provides a method named distance that finds the distance between two points
         guard let targetLocation = positionViewModel.location else {
-            return "unknown"
+            return nil
         }
         
         let distance = targetLocation.distance(from: CLLocation(latitude: currentTarget.latitude, longitude: currentTarget.longitude))
         
-        return String(distance.formatted(.number.precision(.fractionLength(1)))) + " m"
+        return distance
+
+    }
+    
+    var distanceToTargetDescription: String {
         
+        // positionViewModel.location is an instance of CLLocation and that built-in type (part of Core Location) provides a method named distance that finds the distance between two points
+        guard let distanceToTarget = distanceToTarget else {
+            return "unknown"
+        }
+                
+        return String(distanceToTarget.formatted(.number.precision(.fractionLength(1)))) + " m"
+        
+    }
+    
+    // Color to use for showing distance to target
+    var distanceToTargetColor: Color {
+        guard let distanceToTarget = distanceToTarget else {
+            return Color(hue: 240.0/360.0, saturation: 0.8, brightness: 0.9)
+        }
+        
+        switch distanceToTarget {
+        case 1000...:
+            return Color(hue: 240.0/360.0, saturation: 0.8, brightness: 0.9)
+        case 500...1000:
+            return Color(hue: 280.0/360.0, saturation: 0.8, brightness: 0.9)
+        case 250...500:
+            return Color(hue: 300.0/360.0, saturation: 0.8, brightness: 0.9)
+        case 125...250:
+            return Color(hue: 320.0/360.0, saturation: 0.8, brightness: 0.9)
+        case 50...125:
+            return Color(hue: 340.0/360.0, saturation: 0.8, brightness: 0.9)
+        case 25...50:
+            return Color(hue: 350.0/360.0, saturation: 0.8, brightness: 0.9)
+        case 0...25:
+            return Color(hue: 360.0/360.0, saturation: 0.8, brightness: 0.9)
+        default:
+            return Color(hue: 240.0/360.0, saturation: 0.8, brightness: 0.9)
+        }
     }
     
     // User interface
@@ -94,9 +131,10 @@ struct PositionView: View {
                         VStack {
                             Text("Distance to target")
                                 .bold()
-                            Text(distanceToTarget)
+                            Text(distanceToTargetDescription)
                                 .font(.largeTitle)
                                 .bold()
+                                .foregroundStyle(distanceToTargetColor)
                         }
                         .padding(.vertical)
                         
